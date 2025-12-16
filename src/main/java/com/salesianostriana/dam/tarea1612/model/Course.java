@@ -14,6 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Course {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -33,5 +35,5 @@ public class Course {
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private List<Category> categories = new ArrayList<>();
-    
+
 }

@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"user_id", "course_id"})
-})
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
