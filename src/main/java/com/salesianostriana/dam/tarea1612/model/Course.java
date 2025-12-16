@@ -36,4 +36,8 @@ public class Course {
     )
     private List<Category> categories = new ArrayList<>();
 
+    public void addLesson(Lesson lesson) {
+        lessons.add(lesson);
+        lesson.setCourse(this);
+    }
 }
