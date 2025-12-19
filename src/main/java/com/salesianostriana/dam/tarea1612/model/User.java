@@ -21,10 +21,21 @@ public class User {
 
     private String name;
     private String email;
+    private Rol rol;
 
     @OneToMany(mappedBy = "instructor")
     private List<Course> courses;
 
     @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
+
+    public void hasThatLesson(Lesson lesson){
+        for (Course c: courses){
+            for (Lesson l: c.getLessons()){
+                if(l.getTitle().equalsIgnoreCase(lesson.getTitle())){
+                    throw new RuntimeException("No puedes asignar la asignatura " + lesson.getTitle() + "porque el profesor tiene una asignada con el mismo título");
+                }
+            }
+        }
+    }
 }
